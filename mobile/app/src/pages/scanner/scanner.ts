@@ -26,17 +26,17 @@ export class ScannerPage {
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
           console.log('Camera Permission Given');
-          this.presentToast('Camera Permission Given')
+          // this.presentToast('Camera Permission Given')
 
           this.scanSub = this.qrScanner.scan().subscribe((text: string) => {
 
             this.http.get("http://10.0.30.118:5000/mark_store/" + text).subscribe()
 
-            console.log('Scanned something', text);
-            this.presentToast('Scanned' + text)
-            this.qrScanner.hide();
-            this.scanSub.unsubscribe();
-
+            this.presentToast('Produtos da loja ' + text + ' recolhidos com sucesso!');
+            this.qrScanner.hide(); // hide camera preview
+            this.scanSub.unsubscribe(); // stop scanning
+            this.hideCamera();
+            this.navCtrl.pop();
           });
 
           this.qrScanner.show();

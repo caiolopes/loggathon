@@ -18,21 +18,18 @@ def allowed_file(filename):
 
 @app.route('/mark_store/<store>')
 def mark_store(store):
+    sells_data = db.table('sells').search(Query().store == store)
+    if len(sells_data) > 0:
+        sells_data = {**sells_data[0]}
+        sells = sells_data.get('sells')
+        for sell in sells:
+            sell['status'] = 'Recolhido'
+            try:
+                sell['sell_date'] = sell['sell_date'].timestamp()
+            except:
+                pass
 
-    user = get_user()
-    if user:
-        sells_data = db.table('sells').search(Query().store == user['email'])
-        if len(sells_data) > 0:
-            sells_data = {**sells_data[0]}
-            sells = sells_data.get('sells')
-            for sell in sells:
-                sell['status'] = 'Recolhido'
-                try:
-                    sell['sell_date'] = int(sell['sell_date'])
-                except:
-                    pass
-
-            db.table('sells').upsert(sells_data, Query().store == user['email'])
+        db.table('sells').upsert(sells_data, Query().store == store)
 
     return redirect(url_for('home'))
 
