@@ -31,6 +31,9 @@
       <h2>{{ store.store_info.name }}</h2>
       <p>{{ store.store_info.address }}</p>
       <p>{{ store.sells.length }} Items</p>
+      <button *ngIf="store.store_info.email == checked" ion-button clear icon-only item-end>
+          <ion-icon name="checkmark"></ion-icon>  
+      </button>
     </ion-item>
   </ion-list>
 

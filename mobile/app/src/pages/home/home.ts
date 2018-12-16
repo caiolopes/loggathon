@@ -10,6 +10,7 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 export class HomePage implements OnInit {
 
   rota: any = [];
+  checked: string;
 
   constructor(
     public navCtrl: NavController,
@@ -23,15 +24,24 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(): void {
+    
+  }
 
+  changeChecked(email) {
+    this.checked = email;
   }
 
   openPage(sells) {
-    this.navCtrl.push('ItemsPage', sells)
+    this.navCtrl.push('ItemsPage', {
+      sells: sells,
+      parentPage: this
+    })
   }
 
   openQRScanner() {
-    this.navCtrl.push('ScannerPage')
+    this.navCtrl.push('ScannerPage', {
+      parentPage: this
+    })
   }
 
 }

@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ScannerPage {
 
   scanSub: any;
+  parentPage = this.navParams.get('parentPage');
 
   constructor(
     public navCtrl: NavController,
@@ -31,6 +32,8 @@ export class ScannerPage {
           this.scanSub = this.qrScanner.scan().subscribe((text: string) => {
 
             this.http.get("http://10.0.30.118:5000/mark_store/" + text).subscribe()
+
+            this.parentPage.changeChecked('lojaa@gmail.com')
 
             this.presentToast('Produtos da loja ' + text + ' recolhidos com sucesso!');
             this.qrScanner.hide(); // hide camera preview
