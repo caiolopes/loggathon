@@ -33,7 +33,7 @@ export class ScannerPage {
 
             this.http.get("http://10.0.30.118:5000/mark_store/" + text).subscribe()
 
-            this.parentPage.changeChecked('lojaa@gmail.com')
+            this.parentPage.changeChecked(text)
 
             this.presentToast('Produtos da loja ' + text + ' recolhidos com sucesso!');
             this.qrScanner.hide(); // hide camera preview

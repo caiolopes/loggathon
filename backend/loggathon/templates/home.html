@@ -14,13 +14,15 @@
               <small class="text-muted">{{ sell.sell_date }}</small>
             </div>
             <h4><a class="article-title" href="#">{{ sell.title }}</a></h4>
-            <p>
-            <ul>
-              <div class="float-left"><img src="/static/media/{{ sell.image }}" width="200px"></div>
-              <li>Volume: {{ sell.volume }}</li>
-              <li>Peso: {{ sell.weight }} kg</li>
-            </ul>
-            </p>
+            <div class="row">
+              <div class="col-md-3 mt-2"><img class="img-thumbnail" src="/static/media/{{ sell.image }}"></div>
+              <div class="col-md-6 mt-2">
+                <ul>
+                  <li>Volume: {{ sell.volume }}</li>
+                  <li>Peso: {{ sell.weight }} kg</li>
+              </div>
+                </ul>
+            </div>
           </div>
         </article>
     {% endfor %}

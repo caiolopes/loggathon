@@ -9,7 +9,7 @@ db = TinyDB(path_db)
 users_data = [
     {
         'name': 'Loja A',
-        'email': 'loja@gmail.com',
+        'email': 'lojaa@gmail.com',
         'address': 'Alameda Santos',
         'number': 2400,
         'neighborhood': 'Jardim Paulista',
@@ -55,7 +55,7 @@ users_data = [
 
 sells_data = [
     {
-        'store': 'loja@gmail.com',
+        'store': 'lojaa@gmail.com',
         'sells': [
             {
                 'title': 'HD Externo',

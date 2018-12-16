@@ -48,6 +48,8 @@ def pdf_template():
 @app.route("/home")
 def home():
     user = get_user()
+
+    sells = []
     if user:
         sells_data = db.table('sells').search(Query().store == user['email'])
         if len(sells_data) > 0:
@@ -58,8 +60,6 @@ def home():
                     sell['sell_date'] = datetime.fromtimestamp(sell['sell_date'])
                 except:
                     pass
-    else:
-        sells = None
 
     return render_template('home.html', user=user, sells=sells)
 
