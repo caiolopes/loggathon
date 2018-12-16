@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h2>Imprima e cole na caixa:</h2>
+
+  <div style="margin-bottom: 20px;">
+    Nome: {{ user.name }}<br>
+    Endereço: {{ user.address }}, {{ user.number }} - {{ user.neighborhood }} - {{ user.city }}, {{ user.state }}<br>
+  </div>
+
+  <div>
+  <img src="{{ qrcode(user.email) }}">
+  </div>
+</body>
+</html>

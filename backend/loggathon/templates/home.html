@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if user %}
+    <div class="row">
+      <div class="col-12">
+        <a href="/pdf"><button class="btn btn-info m-4 ">Gerar etiqueta</button></a>
+      </div>
+    </div>
+    {% for sell in sells %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <b class="mr-2">{{ sell.status }}</b>
+              <small class="text-muted">{{ sell.sell_date }}</small>
+            </div>
+            <h4><a class="article-title" href="#">{{ sell.title }}</a></h4>
+            <p>
+            <ul>
+              <div class="float-left"><img src="/static/media/{{ sell.image }}" width="200px"></div>
+              <li>Volume: {{ sell.volume }}</li>
+              <li>Peso: {{ sell.weight }} kg</li>
+            </ul>
+            </p>
+          </div>
+        </article>
+    {% endfor %}
+    {% endif %}
+{% endblock content %}
