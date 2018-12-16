@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      Loggi
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+
+  <ion-card>
+    <ion-card-content style="color: white; background: #00baff">
+      <p style="color: white; font-size: 18px">A {{ rota?.distance }} km de distância</p>
+      <br>
+      <h1 style="color: white">R$ {{ rota?.price }}</h1>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <p style="color: white; font-size: 18px">{{ rota?.distance }} km</p>
+          </ion-col>
+          <ion-col col-6>
+            <p style="color: white; font-size: 18px">{{ rota?.eta }} min</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="rota?.stores?.length > 0">
+    <ion-item *ngFor="let store of rota.stores" (click)="openPage(store.sells)">
+      <h2>{{ store.store_info.name }}</h2>
+      <p>{{ store.store_info.address }}</p>
+      <p>{{ store.sells.length }} Items</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom >
+    <button ion-fab (click)="openQRScanner()">
+      <ion-icon name="qr-scanner"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
