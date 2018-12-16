@@ -1,6 +1,7 @@
 import os
 import json
 import secrets
+import random
 from flask import render_template, url_for, flash, redirect, session, request, jsonify, make_response
 from loggathon import app, db, UPLOAD_FOLDER, ALLOWED_EXTENSIONS
 from tinydb import Query
@@ -75,7 +76,12 @@ def stores():
         user.pop('password', None)
         sell['store_info'] = user
 
-    return jsonify({'amount': amount, 'price': 20, 'distance': 5.2, 'eta': 15, 'stores': sells})
+    price = '{:.2f}'.format(random.random() * 20 + 10)
+    distance = '{:.2f}'.format(random.random() * 10 + 5)
+    eta = '{:.2f}'.format(random.randint(10, 20))
+
+    return jsonify({'amount': amount, 'price': price, 'distance': distance, 'eta': eta, 'stores': sells})
+
 
 @app.route("/post_sell", methods=['GET', 'POST'])
 def post_sell():

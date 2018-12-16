@@ -21,7 +21,7 @@ users_data = [
     {
         'name': 'Loja B',
         'email': 'lojab@gmail.com',
-        'address': 'Alameda Santos',
+        'address': 'Rua Bela Cintra',
         'number': 2500,
         'neighborhood': 'Jardim Paulista',
         'city': 'São Paulo',
@@ -30,10 +30,21 @@ users_data = [
         'password': 'password'
     },
     {
-        'name': 'Loja B',
-        'email': 'lojab@gmail.com',
-        'address': 'Alameda Santos',
+        'name': 'Loja C',
+        'email': 'lojac@gmail.com',
+        'address': 'Rua Haddock Lobo',
         'number': 2600,
+        'neighborhood': 'Jardim Paulista',
+        'city': 'São Paulo',
+        'state': 'SP',
+        'cep': '01418-200',
+        'password': 'password'
+    },
+    {
+        'name': 'Loja D',
+        'email': 'lojad@gmail.com',
+        'address': 'Av. Paulista',
+        'number': 100,
         'neighborhood': 'Jardim Paulista',
         'city': 'São Paulo',
         'state': 'SP',
@@ -45,6 +56,45 @@ users_data = [
 sells_data = [
     {
         'store': 'loja@gmail.com',
+        'sells': [
+            {
+                'title': 'HD Externo',
+                'status': 'Não recolhido',
+                'volume': '20cm x 15cm x 5 cm',
+                'weight': 0.8,
+                'sell_date': int(1544923966.623495),
+                'image': 'f4ed888d_hd_externo.jpg'
+            },
+        ]
+    },
+    {
+        'store': 'lojab@gmail.com',
+        'sells': [
+            {
+                'title': 'HD Externo',
+                'status': 'Não recolhido',
+                'volume': '20cm x 15cm x 5 cm',
+                'weight': 0.8,
+                'sell_date': int(1544923966.623495),
+                'image': 'f4ed888d_hd_externo.jpg'
+            },
+        ]
+    },
+    {
+        'store': 'lojac@gmail.com',
+        'sells': [
+            {
+                'title': 'HD Externo',
+                'status': 'Não recolhido',
+                'volume': '20cm x 15cm x 5 cm',
+                'weight': 0.8,
+                'sell_date': int(1544923966.623495),
+                'image': 'f4ed888d_hd_externo.jpg'
+            },
+        ]
+    },
+    {
+        'store': 'lojad@gmail.com',
         'sells': [
             {
                 'title': 'HD Externo',
